@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchRevenue } from '../../redux/slices/apiSlice'
-import HeadTitle from './HeadTitle'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchRevenue } from '../../redux/slices/apiSlice';
+import HeadTitle from './HeadTitle';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const formatYxisLabel = (value) => `${value}K`
-const formatTooltipValue = (value) => `${value} Sales`
+const formatYxisLabel = (value) => `${value}K`;
+const formatTooltipValue = (value) => `${value} Sales`;
 
 const TotalRevenue = () => {
-  const dispatch = useDispatch()
-  const state = useSelector((state) => state.apis.revenueData)
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.apis.revenueData);
 
   useEffect(() => {
-    dispatch(fetchRevenue())
-  }, [dispatch])
+    dispatch(fetchRevenue());
+  }, [dispatch]);
 
   // console.log(state)
   return (
@@ -92,7 +92,7 @@ const TotalRevenue = () => {
         </ResponsiveContainer>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TotalRevenue
+export default TotalRevenue;

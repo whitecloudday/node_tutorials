@@ -1,15 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { REST_COUNTRIES_API_URL } from '../../constants/apiUrls'
-import { Icons } from '../../assets/icons'
-import axios from 'axios'
+import React, { useEffect, useRef, useState } from 'react';
+import { REST_COUNTRIES_API_URL } from '../../constants/apiUrls';
+import { Icons } from '../../assets/icons';
+import axios from 'axios';
 
 const AppbarLang = () => {
-  const DEFAULT_COUNTRY = 'South Korea'
-  const [countries, setCountries] = useState([])
-  const [selectedCountry, setSelectedCountry] = useState(null)
-  const [isDroplistEnabled, setIsDroplistEnabled] = useState(false)
+  const DEFAULT_COUNTRY = 'South Korea';
+  const [countries, setCountries] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [isDroplistEnabled, setIsDroplistEnabled] = useState(false);
 
-  const countryLangRef = useRef(null)
+  const countryLangRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -25,40 +25,40 @@ const AppbarLang = () => {
     };
   }, []);
   
-  const handleDroplistEnable = () => setIsDroplistEnabled(!isDroplistEnabled)
+  const handleDroplistEnable = () => setIsDroplistEnabled(!isDroplistEnabled);
 
   const countrySelectedHandler = (country, flag, lang) => {
     setSelectedCountry({
       country: country,
       flag: flag,
-      language: lang
-    })
-    setIsDroplistEnabled(false)
-  }
+      language: lang,
+    });
+    setIsDroplistEnabled(false);
+  };
 
   useEffect(() => {
     const fetchCountryData = async () => {
       try {
-        const response = await axios.get(REST_COUNTRIES_API_URL)
-        setCountries(response.data)
+        const response = await axios.get(REST_COUNTRIES_API_URL);
+        setCountries(response.data);
 
-        const defaultCountry = response.data.find((country) => country.name.common === DEFAULT_COUNTRY)
+        const defaultCountry = response.data.find((country) => country.name.common === DEFAULT_COUNTRY);
 
         if(defaultCountry) {
-          let langKey = Object.keys(defaultCountry?.languages)[0] // ?: optional
+          let langKey = Object.keys(defaultCountry?.languages)[0]; // ?: optional
           setSelectedCountry({
             country: defaultCountry.name.common,
             flag: defaultCountry.flags.png,
-            language: langKey
-          })
+            language: langKey,
+          });
         }
       } catch (error) {
-        console.error(`Error Fetching Country Data: ${error}`)
+        console.error(`Error Fetching Country Data: ${error}`);
       }
-    }
+    };
   
-    fetchCountryData()
-  }, [])
+    fetchCountryData();
+  }, []);
 
   return (
     <div className='appbar-dropdown relative w-30 h-10 mx-7' ref={countryLangRef}>
@@ -78,7 +78,7 @@ const AppbarLang = () => {
             countries?.length > 0 ? (
               countries?.map((country) => {
                 if(country?.languages && Object.keys(country?.languages)) {
-                  const langKey = Object.keys(country.languages)[0]
+                  const langKey = Object.keys(country.languages)[0];
 
                   return (
                     <div 
@@ -87,8 +87,8 @@ const AppbarLang = () => {
                       onClick={() => {countrySelectedHandler(
                         country?.name?.common,
                         country?.flags?.png,
-                        langKey
-                      )}} 
+                        langKey,
+                      );}} 
                     >
                       <span className='drop-item-img w-4 h-4 min-w-4 overflow-hidden rounded-full'>
                         <img src={country.flags.png} alt="" className='w-full h-full object-cover' />
@@ -97,9 +97,9 @@ const AppbarLang = () => {
                         {langKey}
                       </span>
                     </div>
-                  )
+                  );
                 } else {
-                  return null
+                  return null;
                 }
               })
             ) : (
@@ -108,7 +108,7 @@ const AppbarLang = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AppbarLang
+export default AppbarLang;

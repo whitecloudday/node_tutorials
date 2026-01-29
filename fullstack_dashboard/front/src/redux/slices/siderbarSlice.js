@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     isSidebarOpen: false,
-}
+};
 
 const sidebarSlice = createSlice({
     name: 'sidebar',

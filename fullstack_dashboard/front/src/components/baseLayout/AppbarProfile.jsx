@@ -1,6 +1,6 @@
-import React from 'react'
-import { Images } from '../../assets/images'
-import { Icons } from '../../assets/icons'
+import React from 'react';
+import { Images } from '../../assets/images';
+import { Icons } from '../../assets/icons';
 
 const AppbarProfile = () => {
   return (
@@ -28,7 +28,7 @@ const AppbarProfile = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default AppbarProfile
+export default AppbarProfile;

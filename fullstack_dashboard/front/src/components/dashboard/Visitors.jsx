@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchVisitors } from '../../redux/slices/apiSlice'
-import HeadTitle from './HeadTitle'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchVisitors } from '../../redux/slices/apiSlice';
+import HeadTitle from './HeadTitle';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const formatLegendValue = (value) => {
-  return value.replace('_', ' ')
-}
+  return value.replace('_', ' ');
+};
 
 const formatTooltipValue = (value, name) => {
-  return `${value.replace('_', ' ')} : ${name}`
-}
+  return `${value.replace('_', ' ')} : ${name}`;
+};
 
 const CustomTooltipContent = ({payload}) => {
-  if(!payload || !payload.length) return null
+  if(!payload || !payload.length) return null;
   return (
     <div className='custom-recharts-tooltip'>
       <p className='recharts-tooltip-label'>
@@ -33,17 +33,17 @@ const CustomTooltipContent = ({payload}) => {
         }
       </ul>
     </div>
-  )
-}
+  );
+};
 
 const Visitors = () => {
 
-  const dispatch = useDispatch()
-  const state = useSelector((state) => state.apis.visitorsData)
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.apis.visitorsData);
 
   useEffect(() => {
-    dispatch(fetchVisitors())
-  }, [dispatch])
+    dispatch(fetchVisitors());
+  }, [dispatch]);
 
   // console.log(state)
   // rechart options: 
@@ -119,7 +119,7 @@ const Visitors = () => {
         </ResponsiveContainer>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Visitors
+export default Visitors;

@@ -1,20 +1,20 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchTargetReality } from '../../redux/slices/apiSlice'
-import HeadTitle from './HeadTitle'
-import { BarChart, Bar, XAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts'
-import { TARGET_REALITY_LISTS } from '../../constants/menuList'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTargetReality } from '../../redux/slices/apiSlice';
+import HeadTitle from './HeadTitle';
+import { BarChart, Bar, XAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { TARGET_REALITY_LISTS } from '../../constants/menuList';
 
-const formatTooltipValue = (value) => `${value} Sales`
+const formatTooltipValue = (value) => `${value} Sales`;
 
 const TargetReality = () => {
 
-  const dispatch = useDispatch()
-  const state = useSelector((state) => state.apis.targetRealityData)
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.apis.targetRealityData);
 
   useEffect(() => {
-    dispatch(fetchTargetReality())
-  }, [dispatch])
+    dispatch(fetchTargetReality());
+  }, [dispatch]);
 
   // console.log(state)
 
@@ -92,8 +92,8 @@ const TargetReality = () => {
                 <div>
                   <p className={`font-semibold dark:text-gray-300 ${
                     index === 0 
-                      ? "text-[#00e096]" 
-                      : "text-[#ffa412]"
+                    ? "text-[#00e096]" 
+                    : "text-[#ffa412]"
                   }`}>{item.value}</p>
                 </div>
               </div>
@@ -102,7 +102,7 @@ const TargetReality = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TargetReality
+export default TargetReality;

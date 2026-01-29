@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const HeadTitle = ({ title }) => {
   return (
@@ -7,7 +7,7 @@ const HeadTitle = ({ title }) => {
         <h3 className='text-lg'>{title}</h3>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HeadTitle
+export default HeadTitle;

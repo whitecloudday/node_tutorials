@@ -1,19 +1,19 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchTopProducts } from '../../redux/slices/apiSlice'
-import HeadTitle from './HeadTitle'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTopProducts } from '../../redux/slices/apiSlice';
+import HeadTitle from './HeadTitle';
 
 const TopProducts = () => {
-  const dispatch = useDispatch()
-  const state = useSelector((state) => state.apis.topProductsData)
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.apis.topProductsData);
 
   useEffect(() => {
-    dispatch(fetchTopProducts())
-  }, [dispatch])
+    dispatch(fetchTopProducts());
+  }, [dispatch]);
 
   // console.log(state)
 
-  const ths = ['#', 'Name', 'Popularity', 'Sales']
+  const ths = ['#', 'Name', 'Popularity', 'Sales'];
 
   return (
     <div className='block-wrap my-[14px]'>
@@ -52,14 +52,14 @@ const TopProducts = () => {
                       </div>                    
                     </td>
                   </tr>
-                )
+                );
               })
             }
           </tbody>
         </table>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default TopProducts
+export default TopProducts;

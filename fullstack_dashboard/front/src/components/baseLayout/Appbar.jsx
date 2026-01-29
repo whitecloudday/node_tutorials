@@ -1,9 +1,9 @@
-import React from 'react'
-import ModeCtrl from './ModeCtrl'
-import { MdOutlineMenu } from 'react-icons/md'
-import { Icons } from '../../assets/icons'
-import AppbarLang from './AppbarLang'
-import AppbarProfile from './AppbarProfile'
+import React from 'react';
+import ModeCtrl from './ModeCtrl';
+import { MdOutlineMenu } from 'react-icons/md';
+import { Icons } from '../../assets/icons';
+import AppbarLang from './AppbarLang';
+import AppbarProfile from './AppbarProfile';
 
 const Appbar = () => {
   return (
@@ -37,7 +37,7 @@ const Appbar = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Appbar
+export default Appbar;

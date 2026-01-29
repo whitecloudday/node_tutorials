@@ -1,7 +1,7 @@
-import './App.css'
-import Appbar from './components/baseLayout/Appbar'
-import Sidebar from './components/baseLayout/Sidebar'
-import DashboardScreen from './components/dashboard/DashboardScreen'
+import './App.css';
+import Appbar from './components/baseLayout/Appbar';
+import Sidebar from './components/baseLayout/Sidebar';
+import DashboardScreen from './components/dashboard/DashboardScreen';
 
 const App = () => {
 
@@ -15,7 +15,7 @@ const App = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
